@@ -37,7 +37,8 @@ src_picocrt_machine = {
 			'riscv32' : 'riscv/crt0.S',
 			'riscv64' : 'riscv/crt0.S',
 			'arm' : 'arm/crt0.c',
-			'aarch64' : 'aarch64/crt0.c'
+			'aarch64' : 'aarch64/crt0.c',
+      'm68k' : 'm68k/init.S'
 		      }
 
 if src_picocrt_machine.has_key(host_cpu_family)

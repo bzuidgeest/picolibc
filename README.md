@@ -43,6 +43,7 @@ at this point only has code to build for the following targets:
  * x86_64 (Linux hosted, for testing)
  * PowerPC
  * ESP8266 (xtensa-lx106-elf)
+ * m68k (bare metal)
 
 Supporting architectures that already have Newlib code requires:
 

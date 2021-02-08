@@ -1,0 +1,16 @@
+[binaries]
+c = 'm68k-elf-gcc'
+ar = 'm68k-elf-ar'
+as = 'vasmm68k_mot'
+
+
+[host_machine]
+system = 'none'
+cpu_family = 'm68k'
+cpu = 'm68k'
+endian = 'big'
+
+
+[properties]
+
+

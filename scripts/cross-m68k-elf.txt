@@ -2,6 +2,7 @@
 c = 'm68k-elf-gcc'
 ar = 'm68k-elf-ar'
 as = 'vasmm68k_mot'
+strip = 'm68k-elf-strip'
 
 
 [host_machine]

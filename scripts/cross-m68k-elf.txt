@@ -8,10 +8,11 @@ strip = 'm68k-elf-strip'
 [host_machine]
 system = 'none'
 cpu_family = 'm68k'
-cpu = 'm68k'
+cpu = 'm68010'
 endian = 'big'
 
 
 [properties]
+
 
 

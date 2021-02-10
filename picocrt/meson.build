@@ -47,6 +47,32 @@ else
   srcs_picocrt = 'shared/crt0.c'
 endif
 
+# hack in vasm support for rosco as setting the assembler to vasm seems unsupported by meson
+# meson just uses gcc for assembly expecting the c-compile to call its own assembler
+# hack based on https://github.com/mesonbuild/meson/blob/master/test%20cases/nasm/1%20configure%20file/meson.build
+# proper solution is to move from vasm to something gcc assembler understands.
+if host_cpu_family == 'm68k'
+
+  vasm = find_program('vasmm68k_mot', required: true)
+
+  if not vasm.found()
+    error('vasm not available')
+  endif
+
+  asm_gen = generator(vasm,
+  output : '@BASENAME@.o',
+  arguments : [
+    '-Felf', 
+    #'-I', meson.current_source_dir() + '/',
+    #'-I', join_paths(meson.current_source_dir(), ''),
+    '@INPUT@',
+    '-o', '@OUTPUT@'
+    ])
+
+  srcs_picocrt = asm_gen.process(srcs_picocrt)
+endif
+
+
 foreach target : targets
   value = get_variable('target_' + target)
 
